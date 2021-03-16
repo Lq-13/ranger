@@ -123,7 +123,7 @@ class fzf_select(Command):
             fd = 'fd'
 
         if fd is not None:
-            hidden = ('--hidden' if self.fm.settings.show_hidden else '')
+            hidden = ('-H' if self.fm.settings.show_hidden else '')
             exclude = "--no-ignore-vcs --exclude '.git' --exclude '*.py[co]' --exclude '__pycache__'"
             only_directories = ('--type directory' if self.quantifier else '')
             fzf_default_command = '{} --follow {} {} {} --color=always'.format(
@@ -157,6 +157,7 @@ class fzf_select(Command):
                 self.fm.cd(selected)
             else:
                 self.fm.select_file(selected)
+
 
 
 
